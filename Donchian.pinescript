@@ -31,8 +31,7 @@ t12 = "Exit short from system 2 if there is a new high after this selected perio
 debugLabel(txt, color) =>
     label.new(bar_index, high, text=txt, color=color, style=label.style_label_lower_right, textcolor=color.black, size=size.small)
 
-//@function which looks if the close date of the current bar falls inside the date range
-inBacktestPeriod(start, end) => (time >= start) and (time <= end)
+
 
 
 //---------------------------------------USER INPUTS--------------------------------------//
@@ -79,13 +78,10 @@ exit_long_syst2 = ta.lowest(low, S2_long_exit)
 exit_short_syst2 = ta.highest(high, S2_short_exit)
 var float exit_signal = na
 //Backtesting period
-var bool inRange = false
+inRange = time >= startDate and time <= endDate
 
 
 //------------------------------CHECKING SOME CONDITIONS ON EACH SCRIPT EXECUTION-------------------------------//
-
-//Checking if the date belong to the range
-inRange := inBacktestPeriod(startDate, endDate)
 
 //Checking if the current equity is higher or lower than the initial capital to adjusted position size
 if strategy.equity - strategy.openprofit < strategy.initial_capital:
