@@ -79,7 +79,7 @@ exit_long_syst2 = ta.lowest(low, S2_long_exit)
 exit_short_syst2 = ta.highest(high, S2_short_exit)
 float exit_signal = na
 //Backtesting period
-bool inRange = na
+var bool inRange = false
 
 
 //------------------------------CHECKING SOME CONDITIONS ON EACH SCRIPT EXECUTION-------------------------------//
